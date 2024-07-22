@@ -9,6 +9,8 @@ from selenium.webdriver.support.expected_conditions import presence_of_all_eleme
 from selenium.common.exceptions import StaleElementReferenceException
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import ElementNotInteractableException
+
+
 def all_href_ext(url):
     lis =[]
     driver.get(url)
@@ -36,6 +38,8 @@ def all_href_ext(url):
          if found_link:break
     return lis
 
+
+# Function to get match result from ipl season page
 def get_match_res(url):
     driver.get(url)
     div_ele= driver.find_elements(By.TAG_NAME,"div")
@@ -165,6 +169,7 @@ hm_tm_aw_tm_lst =[{'Match Number': 'MATCH 30', 'Home Team': 'LSG', 'Away Team': 
 lis =[{'num': 'MATCH 30', 'url': 'https://www.iplt20.com/match/2023/885'}]
 hm_tm_aw_tm_lst.reverse()
 lis.reverse()
+# File to save all the extracted links
 with open(r'C:\Users\Satardhan\OneDrive\Projects\data.txt','r+') as rwf:
     urls = rwf.readlines()
     url_lst = [line.rstrip() for line in urls]
